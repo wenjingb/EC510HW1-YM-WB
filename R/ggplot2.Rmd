@@ -1,0 +1,89 @@
+---
+title: "Showing off some ggplot2 skills"
+author: "FILL IN YOUR NAME(S) HERE"
+date: </br>`r format(Sys.time(), '%d %B %Y')`
+output: github_document
+---
+
+```{r setup, include=FALSE}
+## These next lines set the default behaviour for all R chunks in the .Rmd document.
+## I recomend you take a look here: https://rmarkdown.rstudio.com/authoring_rcodechunks.html
+knitr::opts_chunk$set(echo = TRUE) ## Show all R output
+knitr::opts_chunk$set(cache=TRUE) ## Cache the results to increase performance.
+```
+
+## Goal and requirements
+
+The goal of this assignment is simple: I want you to produce *four* different figures using **ggplot2**. They don't have to be identify causal relationships, or anything like that. I just want you to stretch your visualization legs and demonstrate any new (or existing) **ggplot2** skills that you have acquired since our first lecture. 
+
+Some additional points:
+
+- You are free to use any dataset that comes in-built with base R, or bundled together with an external R package. See [here](https://vincentarelbundock.github.io/Rdatasets/datasets.html) for an impressive list.
+
+- That being said, I would especially encourage you to use your own data. 
+  - I know we haven't gotten to data importation yet, but take a look [here](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio) if you need help. I would recommend that you install the **readr**, **read_excel** and **haven** packages first, though.
+  - If your dataset isn't proprietary (or isn't being read directly off the web), please save it in the (empty) `data/` folder of this repo. 
+
+- You can use the same dataset for all four of your plots. Or you can use a new dataset for each plot. Regardless of what you choose, I want you to try and use different geoms for each figure.
+
+- Any other **ggplot2** skills and add-ons like faceting, changing aesthetic scales or legends, using different themes (e.g. from the **ggthemes** package), animation, etc. are all welcome and encouraged.
+
+- I want to *see* the code that produces the figures. (Don't use `echo=FALSE` in any of the code chunks, if that means anything to you.)
+
+### What you will be graded on
+
+- Are your figures clear? (e.g. lack of chart chunk, non-overlapping labels)
+- Are your figures compelling? (e.g. use an appropriate geom for the insight that you want to convey)
+- Variation (I don't want to see four line charts of the same dataset... Be creative)
+- Did you read and follow my instructions (e.g. describe your data and figures, show the code that produced the figures, include data in the `/data` folder, etc)
+- etc.
+
+Lastly, don't forget to knit the assignment (click the "Knit" button, or press `Ctrl+Shift+K`) before submitting!
+
+## Start the assignment
+
+Here is a R code chunk for you to load your packages. Feel free to load as many other packages and insert as many additional code chunks (`Ctr+Alt+I`) as you need. You can always load additional packages in the their own chunk blocks, but I recommend loading all of your packages together at the top.)
+
+```{r libs}
+if (!require("pacman")) install.packages("pacman")
+## Note: The `p_load()` function from the pacman package is a convenient way to 
+## install (if necessary) and load packages all at once. You can think of this
+## as an alternative to the normal `library(ggplot2); library(here);...` way of
+## loading R packages.
+pacman::p_load(ggplot2, here)
+```
+
+
+### Figure 1: Title description
+
+Load/read in the data. (Delete this chunk if you don't need it.)
+```{r data1}
+# library(readr)
+# cool_data <- read_csv(here("data/my-cool-data.csv"))
+```
+
+Briefly describe the data here. Then produce the figure.
+
+```{r fig1}
+# Plot code here
+```
+
+Finally, tell me what I am looking at. Point out anything that you think is of interest. Now do the same for Figs. 2-4 below...
+
+### Figure 2: Title description
+
+```{r fig2}
+# Plot code here
+```
+
+### Figure 3: Title description
+
+```{r fig3}
+# Plot code here
+```
+
+### Figure 4: Title description
+
+```{r fig4}
+# Plot code here
+```
