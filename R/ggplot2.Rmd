@@ -1,6 +1,6 @@
 ---
 title: "Showing off some ggplot2 skills"
-author: "FILL IN YOUR NAME(S) HERE"
+author: "Yingfei Mu; Wenjing Bao"
 date: </br>`r format(Sys.time(), '%d %B %Y')`
 output: github_document
 ---
@@ -54,18 +54,22 @@ pacman::p_load(ggplot2, here)
 ```
 
 
-### Figure 1: Title description
+### Figure 1: Iris species and Their Sepal Length
 
 Load/read in the data. (Delete this chunk if you don't need it.)
 ```{r data1}
 # library(readr)
 # cool_data <- read_csv(here("data/my-cool-data.csv"))
+data(iris)
+str(iris)
+summary(iris)
 ```
 
 Briefly describe the data here. Then produce the figure.
 
 ```{r fig1}
 # Plot code here
+plot(iris$Species, iris$Sepal.Length, xlab="Species", ylab="Sepal Length", title("Iris species and Their Sepal Length"))
 ```
 
 Finally, tell me what I am looking at. Point out anything that you think is of interest. Now do the same for Figs. 2-4 below...
