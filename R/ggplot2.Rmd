@@ -54,7 +54,7 @@ pacman::p_load(ggplot2, here)
 ```
 
 
-### Figure 1: Iris species and Their Sepal Length
+### Figure 1: Iris Species and Their Sepal Length
 
 Load/read in the data. (Delete this chunk if you don't need it.)
 ```{r data1}
@@ -66,11 +66,12 @@ summary(iris)
 ```
 
 Briefly describe the data here. Then produce the figure.
-
+There are five variables in the dataframe, including species, petal width and length as well as sepal length and width. The Figure 1 tries to visualize the relationship between different iris species and their sepal length.
 ```{r fig1}
 # Plot code here
-plot(iris$Species, iris$Sepal.Length, xlab="Species", ylab="Sepal Length", title("Iris species and Their Sepal Length"))
+plot(iris$Species, iris$Sepal.Length, xlab="Species", ylab="Sepal Length", title("Iris Species and Their Sepal Length"))
 ```
+From Figure 1, we can see virginica has the largest median sepal length while setosa has the smallest median sepal length, and there is an outlier in the virginica data.
 
 Finally, tell me what I am looking at. Point out anything that you think is of interest. Now do the same for Figs. 2-4 below...
 
