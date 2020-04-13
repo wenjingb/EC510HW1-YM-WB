@@ -70,6 +70,7 @@ There are five variables in the dataframe, including species, petal width and le
 ```{r fig1}
 # Plot code here
 plot(iris$Species, iris$Sepal.Length, xlab="Species", ylab="Sepal Length", main="Iris Species and Their Sepal Length")
+ggplot(data=iris, aes(x=Sepal.Width, y=Sepal.Length, col=Species))+geom_point()
 ```
 From Figure 1, we can see virginica has the largest median sepal length while setosa has the smallest median sepal length, and there is an outlier in the virginica data.
 
