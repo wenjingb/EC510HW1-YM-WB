@@ -69,17 +69,18 @@ Briefly describe the data here. Then produce the figure.
 There are five variables in the dataframe, including species, petal width and length as well as sepal length and width. The Figure 1 tries to visualize the relationship between different iris species and their sepal length.
 ```{r fig1}
 # Plot code here
-plot(iris$Species, iris$Sepal.Length, xlab="Species", ylab="Sepal Length", title ("Iris Species and Their Sepal Length"))
+plot(iris$Species, iris$Sepal.Length, xlab="Species", ylab="Sepal Length", main="Iris Species and Their Sepal Length")
 ```
 From Figure 1, we can see virginica has the largest median sepal length while setosa has the smallest median sepal length, and there is an outlier in the virginica data.
 
 Finally, tell me what I am looking at. Point out anything that you think is of interest. Now do the same for Figs. 2-4 below...
 
 ### Figure 2: Sepal Length vs. Petal Length
-
+For Figure 2, we try to find out the relationship between iris sepal length and petal length. From the regression line, we can see there is a positive correlation between iris petal length and sepal length.
 ```{r fig2}
 # Plot code here
-plot(iris$Sepal.Length, iris$Petal.Length, xlab="Petal Length", ylab="Sepal Length", title("Sepal Length vs. Petal Length"), col="pink", pch=16)
+plot(iris$Sepal.Length ~ iris$Petal.Length,  xlab="Petal Length", ylab="Sepal Length", main="Sepal Length vs. Petal Length", col="pink", pch=16)
+abline(lm(iris$Sepal.Length ~ iris$Petal.Length),  col="purple")
 ```
 
 ### Figure 3: Title description
