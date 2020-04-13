@@ -1,6 +1,6 @@
 ---
 title: "Showing off some ggplot2 skills"
-author: "Yingfei Mu; Wenjing Bao"
+author: "Yingfei Mu & Wenjing Bao"
 date: </br>`r format(Sys.time(), '%d %B %Y')`
 output: github_document
 ---
