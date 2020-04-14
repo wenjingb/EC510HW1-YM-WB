@@ -58,6 +58,8 @@ pacman::p_load(ggplot2, here)
 
 Load/read in the data. (Delete this chunk if you don't need it.)
 ```{r data1}
+library(pacman)
+p_load(readr, ggplot2, dplyr)
 # library(readr)
 # cool_data <- read_csv(here("data/my-cool-data.csv"))
 data(iris)
@@ -85,8 +87,25 @@ abline(lm(iris$Sepal.Length ~ iris$Petal.Length),  col="purple")
 ```
 
 ### Figure 3: Title description
-
+dataset: https://www.kaggle.com/mcdonalds/nutrition-facts
+During quartine, we may order take-outs or use food delivery apps, we briefly study the nutrition facts of food from McDonald such that we can advise on how to eat healthy
 ```{r fig3}
+menu <- read_csv("/Users/Infinite/Downloads/menu.csv")
+dat<-menu %>% select(Category,Sodium)%>% group_by(Category)%>%summarise(tsodium=sum(Sodium))
+dat
+dat$fraction = dat$tsodium / sum(dat$tsodium)
+dat = dat[order(dat$fraction), ]
+dat$ymax = cumsum(dat$fraction)
+dat$ymin = c(0, head(dat$ymax, n=-1))
+ggplot(dat, aes(fill=Category, ymax=ymax, ymin=ymin, xmax=9, xmin=3)) +
+  geom_rect() +
+  coord_polar(theta="y") +
+  xlim(c(0, 9)) +
+  theme(panel.grid=element_blank()) +
+  theme(axis.text=element_blank()) +
+  theme(axis.ticks=element_blank()) +
+  annotate("text", x = 0, y = 0, label = "Sodium") +
+  labs(title="Sodium content in Category")
 # Plot code here
 ```
 
