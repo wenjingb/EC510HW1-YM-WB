@@ -65,7 +65,12 @@ Here is a R code chunk for you to load your packages. Feel free to load
 as many other packages and insert as many additional code chunks
 (`Ctr+Alt+I`) as you need. You can always load additional packages in
 the their own chunk blocks, but I recommend loading all of your packages
+<<<<<<< HEAD
 together at the top.)
+=======
+together at the
+top.)
+>>>>>>> d75e0bc04adb32d1f0d12d2013a273b068b39204
 
 ``` r
 if (!require("pacman")) install.packages("pacman")
@@ -86,6 +91,11 @@ pacman::p_load(ggplot2, here)
 Load/read in the data. (Delete this chunk if you don’t need it.)
 
 ``` r
+<<<<<<< HEAD
+=======
+library(pacman)
+p_load(readr, ggplot2, dplyr)
+>>>>>>> d75e0bc04adb32d1f0d12d2013a273b068b39204
 # library(readr)
 # cool_data <- read_csv(here("data/my-cool-data.csv"))
 data(iris)
@@ -160,6 +170,64 @@ abline(lm(iris$Sepal.Length ~ iris$Petal.Length),  col="purple")
 
 ### Figure 3: Title description
 
+<<<<<<< HEAD
+=======
+dataset: <https://www.kaggle.com/mcdonalds/nutrition-facts> During
+quartine, we may order take-outs or use food delivery apps, we briefly
+study the nutrition facts of food from McDonald such that we can advise
+on how to eat healthy
+
+``` r
+menu <- read_csv("/Users/Infinite/Downloads/menu.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   .default = col_double(),
+    ##   Category = col_character(),
+    ##   Item = col_character(),
+    ##   `Serving Size` = col_character()
+    ## )
+
+    ## See spec(...) for full column specifications.
+
+``` r
+dat<-menu %>% select(Category,Sodium)%>% group_by(Category)%>%summarise(tsodium=sum(Sodium))
+dat
+```
+
+    ## # A tibble: 9 x 2
+    ##   Category           tsodium
+    ##   <chr>                <dbl>
+    ## 1 Beef & Pork          15310
+    ## 2 Beverages             1120
+    ## 3 Breakfast            50865
+    ## 4 Chicken & Fish       33960
+    ## 5 Coffee & Tea         13005
+    ## 6 Desserts               820
+    ## 7 Salads                3530
+    ## 8 Smoothies & Shakes    5140
+    ## 9 Snacks & Sides        5145
+
+``` r
+dat$fraction = dat$tsodium / sum(dat$tsodium)
+dat = dat[order(dat$fraction), ]
+dat$ymax = cumsum(dat$fraction)
+dat$ymin = c(0, head(dat$ymax, n=-1))
+ggplot(dat, aes(fill=Category, ymax=ymax, ymin=ymin, xmax=9, xmin=3)) +
+  geom_rect() +
+  coord_polar(theta="y") +
+  xlim(c(0, 9)) +
+  theme(panel.grid=element_blank()) +
+  theme(axis.text=element_blank()) +
+  theme(axis.ticks=element_blank()) +
+  annotate("text", x = 0, y = 0, label = "Sodium") +
+  labs(title="Sodium content in Category")
+```
+
+![](ggplot2_files/figure-gfm/fig3-1.png)<!-- -->
+
+>>>>>>> d75e0bc04adb32d1f0d12d2013a273b068b39204
 ``` r
 # Plot code here
 ```
